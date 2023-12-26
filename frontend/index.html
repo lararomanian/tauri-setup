@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Notes App - Tauri</title>
+
+    <link data-trunk rel="css" href="/public/main.css"/>
+  </head>
+  <body>
+    <h2 id="header"> Notes App - Initialized</h2>
+    <script>
+      
+      const { invoke } = window.__TAURI__.tauri
+
+      invoke('greet', {name: "Test"})
+        .then((response) => {
+          console.log(response)
+          window.header.innerHTML = response
+        })
+
+    </script>
+  </body>
+</html>
